@@ -1,94 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 .navbar {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   position: sticky;
   top: 0;
-  z-index: 50;
-
+  z-index: 2000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 20px 40px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 18px 6%;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  gap: 14px;
+  text-decoration: none;
 }
 
 .logoIcon {
-  width: 40px;
-  height: 40px;
-  background: #2563eb;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
   color: white;
-  border-radius: 50%;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 800;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
 }
 
 .logoText {
-  font-size: 20px;
-  font-weight: 900;
-  color: #1f2937;
-  letter-spacing: -0.5px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
 }
 
-/* Links */
 .links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 40px;
 }
 
 .navItem {
   position: relative;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #374151;
   text-decoration: none;
-  cursor: pointer;
+  color: #9ca3af;
   transition: color 0.3s ease;
 }
 
-.navItem:hover {
-  color: #2563eb;
+.activeLink {
+  color: #3b82f6 !important;
 }
 
-/* Underline animation */
-.underline {
+.activeLink::after {
+  content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #2563eb;
-  transition: width 0.3s ease;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #3b82f6;
+  border-radius: 50%;
 }
 
-.navItem:hover .underline {
-  width: 100%;
-}
-
-/* CTA */
 .cta {
-  background: black;
-  color: white;
+  background: #ffffff;
+  color: #000;
   padding: 10px 24px;
-  border-radius: 999px;
+  border-radius: 100px;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* --- Mobile Specific --- */
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  background: none;
   border: none;
   cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  z-index: 2001;
 }
 
-.cta:hover {
-  background: #2563eb;
+.bar {
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.bar:nth-child(1) { width: 30px; }
+.bar:nth-child(2) { width: 22px; }
+.bar:nth-child(3) { width: 28px; }
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: none !important; /* Prevent fighting with GSAP */
+}
+
+.mobileLink {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 15px 0;
+  opacity: 0; /* Handled by GSAP */
+}
+
+.activeMobile {
+  color: #3b82f6;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 40px;
+  left: 6%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .links { display: none; }
+  .menuButton { display: flex; }
+  .bar1 { transform: rotate(45deg) translate(6px, 6px); width: 30px !important; }
+  .bar2 { opacity: 0; }
+  .bar3 { transform: rotate(-45deg) translate(7px, -7px); width: 30px !important; }
 }
