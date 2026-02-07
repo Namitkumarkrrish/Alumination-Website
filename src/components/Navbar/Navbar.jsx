@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <>
       <nav ref={navRef} className={styles.navbar}>
-        <Link to="/" className={styles.logo}>
+        <Link to="https://www.alumninitdgp.in/" target="/" className={styles.logo}>
           <div className={`${styles.logoIcon} logo-anim-icon`}>S</div>
           <span className={`${styles.logoText} logo-anim-text`}>SAIC</span>
         </Link>
