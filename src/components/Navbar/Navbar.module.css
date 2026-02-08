@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
 
 .navbar {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -8,152 +8,193 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 6%;
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 6%;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
 }
 
+/* --- Logo Section --- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 15px;
   text-decoration: none;
 }
 
 .logoIcon {
-  width: 42px;
-  height: 42px;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  color: white;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #fde68a, #b45309, #78350f);
+  color: #000;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 20px;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 24px;
+  box-shadow: 0 0 25px rgba(180, 83, 9, 0.5);
+  animation: goldPulse 4s infinite alternate;
 }
 
 .logoText {
-  font-size: 22px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.8px;
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  background: linear-gradient(to bottom, #fde68a 0%, #b45309 50%, #78350f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
 
+/* --- Desktop Links --- */
 .links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 45px;
 }
 
 .navItem {
   position: relative;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
   text-decoration: none;
   color: #9ca3af;
-  transition: color 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navItem:hover {
+  color: #fde68a;
+  text-shadow: 0 0 15px rgba(253, 230, 138, 0.5);
 }
 
 .activeLink {
-  color: #3b82f6 !important;
+  color: #fde68a !important;
 }
 
 .activeLink::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  background: #3b82f6;
-  border-radius: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fde68a, transparent);
 }
 
+/* --- CTA: The Quest Button --- */
 .cta {
-  background: #ffffff;
-  color: #000;
-  padding: 10px 24px;
-  border-radius: 100px;
-  border: none;
+  background: transparent;
+  color: #fde68a;
+  padding: 12px 28px;
+  border: 1px solid rgba(180, 83, 9, 0.6);
+  font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
+  letter-spacing: 2px;
   cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  text-transform: uppercase;
 }
 
-/* --- Mobile Specific --- */
+.cta:hover {
+  background: linear-gradient(135deg, rgba(180, 83, 9, 0.2), transparent);
+  border-color: #fde68a;
+  box-shadow: 0 0 20px rgba(180, 83, 9, 0.3);
+  transform: translateY(-2px);
+}
 
+/* --- Mobile Logic Fixes --- */
 .menuButton {
   display: none;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
-  gap: 7px;
+  gap: 8px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 2001;
+  z-index: 2100; /* Stays above overlay */
 }
 
 .bar {
   height: 2px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  background: linear-gradient(90deg, #fde68a, #b45309);
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-.bar:nth-child(1) { width: 30px; }
+/* Mythological Staggered Widths */
+.bar:nth-child(1) { width: 32px; }
 .bar:nth-child(2) { width: 22px; }
 .bar:nth-child(3) { width: 28px; }
 
 .mobileMenu {
   position: fixed;
   top: 0;
-  right: -100%; /* Start off-screen */
+  right: -100%; 
   width: 100%;
   height: 100vh;
-  background: #0f172a;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #050505 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  transition: none !important; /* Prevent fighting with GSAP */
+  border-left: 1px solid rgba(180, 83, 9, 0.2);
+  transition: none !important; /* Managed by GSAP */
 }
 
 .mobileLink {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fde68a;
   text-decoration: none;
   margin: 15px 0;
-  opacity: 0; /* Handled by GSAP */
+  letter-spacing: 6px;
+  text-align: center;
 }
 
 .activeMobile {
-  color: #3b82f6;
+  color: #fff !important;
+  text-shadow: 0 0 30px rgba(253, 230, 138, 0.8);
 }
 
 .closeBtn {
   position: absolute;
   top: 40px;
   left: 6%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 20px;
-  border-radius: 100px;
-  color: #fff;
-  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(180, 83, 9, 0.4);
+  padding: 8px 16px;
+  color: #fde68a;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  border-radius: 4px;
 }
 
-@media (max-width: 768px) {
-  .links { display: none; }
+/* --- Golden Animations --- */
+@keyframes goldPulse {
+  from { box-shadow: 0 0 15px rgba(180, 83, 9, 0.3); }
+  to { box-shadow: 0 0 30px rgba(180, 83, 9, 0.6); }
+}
+
+@media (max-width: 900px) {
+  .links, .cta { display: none; }
   .menuButton { display: flex; }
-  .bar1 { transform: rotate(45deg) translate(6px, 6px); width: 30px !important; }
-  .bar2 { opacity: 0; }
-  .bar3 { transform: rotate(-45deg) translate(7px, -7px); width: 30px !important; }
+
+  /* Forms the X while maintaining Golden Odyssey theme */
+  .bar1 { transform: rotate(45deg) translate(7px, 7px); width: 32px !important; }
+  .bar2 { opacity: 0; transform: translateX(20px); }
+  .bar3 { transform: rotate(-45deg) translate(7px, -7px); width: 32px !important; }
 }
