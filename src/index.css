@@ -3,7 +3,17 @@
   box-sizing: border-box;
 }
 
-body,html{
-  height: 100%;
-  width: 100%;
+body,html, #root{
+  min-height: 100%;
+  color: whitesmoke;
+}
+
+html{
+  background-color: black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
