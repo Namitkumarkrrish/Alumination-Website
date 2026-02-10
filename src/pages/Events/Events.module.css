@@ -17,8 +17,13 @@
   margin-bottom: 60px;
   background: linear-gradient(to bottom, #fde68a, #b45309);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* REQUIRED for the gradient to show */
   text-transform: uppercase;
   letter-spacing: 4px;
+
+  /* GSAP FIX: Prevents the flash and vanish bug */
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* --- LAPTOP: STABLE GRID --- */
@@ -43,7 +48,7 @@
   border-radius: 50%;
   font-size: 1.5rem;
   z-index: 100;
-  display: none; /* Default hidden for laptop grid */
+  display: none; 
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -89,11 +94,10 @@
     scroll-snap-align: center;
   }
 
-  /* Show arrows only on mobile since that's the only scrollable version */
   .navBtn {
     display: flex;
   }
-  .title{
+  .title {
     font-size: clamp(2.5rem, 10vw, 4rem);
   }
 }
@@ -102,7 +106,6 @@
     .title{
         font-size: clamp(1.7rem, 2vw, 2rem);
     }
-    
 }
 
 /* --- SHARED CARD STYLES --- */
@@ -122,15 +125,25 @@
   transform: translateY(-5px);
 }
 
+/* FIX: Ensure image fills the space correctly */
 .imagePlaceholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #111, #000);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #444;
-  border-bottom: 1px solid rgba(180, 83, 9, 0.2);
+  position: relative;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  position: absolute; /* Ensures it layers correctly */
+  top: 0;
+  left: 0;
 }
 
 .cardContent {
@@ -138,8 +151,10 @@
   bottom: 0;
   width: 100%;
   padding: 40px 30px;
-  background: linear-gradient(to top, #000 40%, transparent);
+  /* Darkened gradient for better text readability over images */
+  background: linear-gradient(to top, rgba(0,0,0,1) 30%, transparent);
   text-align: center;
+  z-index: 2;
 }
 
 .cardTitle {
@@ -147,6 +162,7 @@
   font-size: 24px;
   color: #fde68a;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .cardDate {
@@ -158,7 +174,6 @@
 
 /* --- DETAILED WRITEUP SECTION --- */
 .detailsSection {
-  /* margin-top: 100px; */
   padding-bottom: 80px;
   border-top: 1px solid rgba(180, 83, 9, 0.2);
   position: relative;

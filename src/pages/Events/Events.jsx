@@ -3,7 +3,7 @@ import styles from "./Events.module.css";
 import { scrollReveal, detailAnimation, revealTitleLetters } from "./eventsAnimation";
 
 const odysseyEvents = [
-  { id: 1, title: "Linkedin bootcamp", date: "EPOCH I", desc: "Unlock the secrets of professional networking. Master your digital presence under the guidance of industry titans." },
+  { id: 1, title: "Linkedin bootcamp", date: "EPOCH I", desc: "Unlock the secrets of professional networking. Master your digital presence under the guidance of industry titans.", img: "/images/linkedin bootcamp.jpeg"},
   { id: 2, title: "Mock EN Joy", date: "EPOCH II", desc: "A trial by fire. Face the pressure of real-world interviews in a safe, constructive arena of growth." },
   { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world." },
   { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council." },
@@ -94,7 +94,11 @@ useEffect(() => {
           {odysseyEvents.map((ev) => (
             <div key={ev.id} className={styles.card} onClick={() => handleCardClick(ev)}>
               <div className={styles.imagePlaceholder}>
+                {ev.img ? (
+                  <img src={ev.img} alt={ev.title} className={styles.eventImage} />
+                ) : (
                 <span>[SACRED IMAGERY]</span>
+                )}
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{ev.title}</h3>
