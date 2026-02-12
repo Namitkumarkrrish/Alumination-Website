@@ -5,9 +5,11 @@ import Home from "./pages/Home/Home.jsx";
 import Timeline from "./pages/Timeline/Timeline.jsx";
 import Alumnis from "./pages/Alumnis/Alumnis.jsx";
 import Team from "./pages/Team/Team.jsx";
+import CosmicBackground from "./components/Cosmicbackground/Cosmicbackground.jsx";
 function App() {
   return (
     <BrowserRouter>
+    {/* <CosmicBackground /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
