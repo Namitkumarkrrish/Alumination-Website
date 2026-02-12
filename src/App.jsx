@@ -6,11 +6,20 @@ import Timeline from "./pages/Timeline/Timeline.jsx";
 import Alumnis from "./pages/Alumnis/Alumnis.jsx";
 import Team from "./pages/Team/Team.jsx";
 import CosmicBackground from "./components/Cosmicbackground/Cosmicbackground.jsx";
+// 1. Import the Custom Cursor
+import CustomCursor from "./components/CustomCursor/CustomCursor.jsx"; 
+
 function App() {
   return (
     <BrowserRouter>
-    {/* <CosmicBackground /> */}
+      {/* 2. The Custom Cursor (Placed high so it tracks everywhere) */}
+      <CustomCursor />
+
+      {/* 3. The 3D Background (Placed behind everything) */}
+      <CosmicBackground />
+
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />

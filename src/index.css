@@ -1,6 +1,8 @@
 *{
   margin: 0;
   box-sizing: border-box;
+  /* This ensures the custom cursor is the only thing visible */
+  cursor: none !important;
 }
 
 body,html, #root{
@@ -16,4 +18,9 @@ html{
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Re-enable pointer events for buttons so they are still clickable */
+button, a, [role="button"] {
+  pointer-events: auto;
 }
