@@ -15,7 +15,7 @@
   -webkit-backdrop-filter: blur(25px); */
   /* border-bottom: 1px solid rgba(180, 83, 9, 0.4); */
   /* Optional: Reduce box-shadow slightly if you want it truly 'clear' */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+  /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); */
 }
 /* --- Logo Section --- */
 .logo {
