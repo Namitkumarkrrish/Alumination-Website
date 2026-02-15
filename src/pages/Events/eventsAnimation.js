@@ -23,13 +23,13 @@ export const revealTitleLetters = (element) => {
     const span = document.createElement("span");
     span.textContent = char === " " ? "\u00A0" : char;
     span.style.display = "inline-block";
-span.style.opacity = "0";
+    span.style.opacity = "0";
 
-/* APPLY GRADIENT TO EACH LETTER */
-span.style.background = "linear-gradient(to bottom, #fde68a, #b45309)";
-span.style.webkitBackgroundClip = "text";
-span.style.backgroundClip = "text";
-span.style.webkitTextFillColor = "transparent";
+    /* APPLY GRADIENT TO EACH LETTER */
+    span.style.background = "linear-gradient(to bottom, #fde68a, #b45309)";
+    span.style.webkitBackgroundClip = "text";
+    span.style.backgroundClip = "text";
+    span.style.webkitTextFillColor = "transparent";
 
     frag.appendChild(span);
   });
@@ -81,4 +81,27 @@ export const detailAnimation = (selector) => {
     stagger: 0.15,
     ease: "expo.out"
   });
+};
+
+/**
+ * NEW: Modal Entrance Animation
+ * Keeps the "Odyssey" feel by scaling up with a slight bounce
+ */
+export const modalFadeIn = (element) => {
+  if (!element) return;
+  
+  gsap.fromTo(element, 
+    { 
+      opacity: 0, 
+      scale: 0.85, 
+      y: 20 
+    }, 
+    { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0, 
+      duration: 0.5, 
+      ease: "back.out(1.7)" 
+    }
+  );
 };
