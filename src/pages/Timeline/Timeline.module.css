@@ -105,7 +105,7 @@
   z-index: 10;
   width: 100%;
   /* Increased top padding to ensure header doesn't hide behind navbar */
-  padding: 120px 5% 100px 5%; 
+  padding: 60px 5% 100px 5%; 
 }
 
 .header { text-align: center; margin-bottom: 150px; }

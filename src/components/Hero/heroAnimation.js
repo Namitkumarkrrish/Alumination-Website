@@ -3,7 +3,6 @@ import gsap from "gsap";
 export const revealHero = (housing, content) => {
   const tl = gsap.timeline();
   
-  // Compass entrance with dramatic 3D effect
   tl.fromTo(housing, 
     { 
       scale: 0.3, 
@@ -20,10 +19,9 @@ export const revealHero = (housing, content) => {
       z: 0,
       duration: 2.5, 
       ease: "power4.out",
-      clearProps: "all" // Clear inline styles after animation
+      clearProps: "all"
     }
   )
-  // Add a subtle floating animation after entrance
   .to(housing, {
     y: -10,
     duration: 2,
@@ -31,7 +29,6 @@ export const revealHero = (housing, content) => {
     yoyo: true,
     ease: "sine.inOut"
   }, "-=0.5")
-  // Content fade in with stagger
   .fromTo(content,
     { y: 60, opacity: 0, scale: 0.9 },
     { 
@@ -53,34 +50,28 @@ export const handleCompassMove = (e, housing, needle) => {
   const centerX = rect.left + rect.width / 2;
   const centerY = rect.top + rect.height / 2;
 
-  // Calculate vector from center to cursor
   const deltaX = e.clientX - centerX;
   const deltaY = e.clientY - centerY;
   
-  // Calculate distance for magnetic effect
   const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   const maxDistance = Math.max(window.innerWidth, window.innerHeight);
   const distanceRatio = Math.min(distance / maxDistance, 1);
 
-  // Calculate angle with improved precision
   const angle = Math.atan2(deltaY, deltaX);
   const degree = angle * (180 / Math.PI) + 90;
 
-  // Enhanced needle rotation with magnetic snap effect
   gsap.to(needle, {
     rotation: degree,
     transformOrigin: "50% 50%",
     duration: 1.8,
-    ease: "elastic.out(1.2, 0.4)", // More pronounced elastic effect
+    ease: "elastic.out(1.2, 0.4)",
     force3D: true
   });
 
-  // Dynamic tilt based on cursor position with smooth damping
-  const maxTilt = 15; // Maximum tilt angle
+  const maxTilt = 15;
   const tiltX = ((e.clientY - centerY) / window.innerHeight) * maxTilt;
   const tiltY = ((centerX - e.clientX) / window.innerWidth) * maxTilt;
 
-  // Apply 3D tilt to compass housing with physics-based easing
   gsap.to(housing, {
     rotateX: tiltX,
     rotateY: tiltY,
@@ -90,8 +81,7 @@ export const handleCompassMove = (e, housing, needle) => {
     transformPerspective: 2000
   });
 
-  // Subtle scale effect based on distance (compass "responds" to cursor proximity)
-  const scaleAmount = 1 + (1 - distanceRatio) * 0.03; // Subtle 3% max scale
+  const scaleAmount = 1 + (1 - distanceRatio) * 0.03;
   gsap.to(housing, {
     scale: scaleAmount,
     duration: 1,
@@ -99,7 +89,6 @@ export const handleCompassMove = (e, housing, needle) => {
   });
 };
 
-// Optional: Add this function to reset compass on mouse leave
 export const resetCompass = (housing, needle) => {
   if (!housing || !needle) return;
 
@@ -111,7 +100,6 @@ export const resetCompass = (housing, needle) => {
     ease: "power3.out"
   });
 
-  // Needle gently returns to North
   gsap.to(needle, {
     rotation: 0,
     duration: 2,
@@ -119,7 +107,6 @@ export const resetCompass = (housing, needle) => {
   });
 };
 
-// Optional: Add ambient rotation when idle
 export const addIdleAnimation = (housing) => {
   if (!housing) return;
 

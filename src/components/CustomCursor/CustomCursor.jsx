@@ -1,59 +1,61 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./CustomCursor.module.css";
+import { initCursor } from "./cursorAnimation";
 
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  
+  const mousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const cursorPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const followerPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const rafId = useRef(null);
 
   useEffect(() => {
-    // 1. Force the cursor to be visible even if the page starts over a 3D element
-    const moveCursor = (e) => {
-      const { clientX, clientY } = e;
-
-      // Primary Point (Snap)
-      gsap.to(cursorRef.current, {
-        x: clientX,
-        y: clientY,
-        duration: 0.05,
-        ease: "none",
-      });
-
-      // Follower Ring (Smooth Lag)
-      gsap.to(followerRef.current, {
-        x: clientX,
-        y: clientY,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+    const checkMobile = () => {
+      const mobileQuery = window.matchMedia("(max-width: 768px)").matches;
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+      setIsMobile(mobileQuery || hasTouch || hasCoarsePointer);
     };
 
-    const handleMouseDown = () => {
-      gsap.to(cursorRef.current, { scale: 1.5, duration: 0.1 });
-      gsap.to(followerRef.current, { scale: 0.6, borderWidth: "3px", duration: 0.1 });
-    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
-    const handleMouseUp = () => {
-      gsap.to(cursorRef.current, { scale: 1, duration: 0.2 });
-      gsap.to(followerRef.current, { scale: 1, borderWidth: "2px", duration: 0.2 });
-    };
+    if (isMobile) {
+      document.documentElement.style.cursor = '';
+      document.body.style.cursor = '';
+      return;
+    }
 
-    // Attach to window to ensure global capture across all page components
-    window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
+    // Call external GSAP and Animation logic
+    const cleanup = initCursor(
+      { cursorRef, followerRef, mousePos, cursorPos, followerPos, rafId },
+      { setIsVisible }
+    );
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("resize", checkMobile);
+      document.documentElement.style.cursor = '';
+      document.body.style.cursor = '';
+      cleanup();
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <>
-      <div ref={cursorRef} className={styles.cursorPoint} />
-      <div ref={followerRef} className={styles.cursorFollower} />
+      <div 
+        ref={cursorRef} 
+        className={`${styles.cursorPoint} ${!isVisible ? styles.hidden : ''}`}
+      />
+      <div 
+        ref={followerRef} 
+        className={`${styles.cursorFollower} ${!isVisible ? styles.hidden : ''}`}
+      />
     </>
   );
 };
