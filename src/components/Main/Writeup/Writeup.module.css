@@ -1,0 +1,156 @@
+.writeupSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0; /* Vertical space between sections */
+  overflow: hidden; 
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px; /* Standard mobile padding */
+}
+
+.briefingBox {
+  background: #0a0907;
+  border: 1px solid rgba(180, 83, 9, 0.3);
+  padding: clamp(30px, 5vw, 80px); /* Responsive internal padding */
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(40px, 6vw, 80px);
+  position: relative;
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.briefingBox::before, .briefingBox::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.briefingBox::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid #fbbf24;
+  border-left: 2px solid #fbbf24;
+}
+
+.briefingBox::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid #fbbf24;
+  border-right: 2px solid #fbbf24;
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 4rem); /* Smaller base size for mobile */
+  letter-spacing: clamp(4px, 1vw, 10px);
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.goldLine {
+  width: 80px;
+  height: 2px;
+  background: #fbbf24;
+  margin: 20px 0;
+  transform-origin: left;
+}
+
+.statement {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #a1a1aa;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+
+.statement strong { color: #fbbf24; }
+
+.voyageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: #000;
+  background: #fbbf24;
+  width: fit-content;
+  padding: 12px 25px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  transition: 0.3s;
+}
+
+.voyageBtn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.rosterSide {
+  border-left: 1px solid rgba(180, 83, 9, 0.2);
+  padding-left: clamp(20px, 4vw, 50px);
+}
+
+.rosterLabel {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #b45309;
+  letter-spacing: 2px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.eventList { list-style: none; padding: 0; }
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.index {
+  font-family: 'Cinzel', serif;
+  color: #b45309;
+  font-size: 0.8rem;
+}
+
+.name {
+  font-family: 'Cinzel', serif;
+  color: #fef3c7;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  letter-spacing: 1px;
+}
+
+/* TABLET & MOBILE FIXES */
+@media (max-width: 1024px) {
+  .briefingBox { gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .writeupSection { padding: 40px 0; }
+  .briefingBox {
+    grid-template-columns: 1fr; /* Stack columns */
+    padding: 40px 25px;
+  }
+  .rosterSide {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(180, 83, 9, 0.2);
+    padding-top: 30px;
+  }
+  .title { text-align: center; }
+  .goldLine { margin: 20px auto; }
+  .statement { text-align: center; margin-left: auto; margin-right: auto; }
+  .voyageBtn { margin: 0 auto; }
+}

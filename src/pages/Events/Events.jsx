@@ -4,11 +4,11 @@ import { scrollReveal, detailAnimation, revealTitleLetters, modalFadeIn } from "
 
 const odysseyEvents = [
   { id: 1, title: "Linkedin bootcamp", date: "EPOCH I", desc: "Unlock the secrets of professional networking. Master your digital presence under the guidance of industry titans.", img: "/images/linkedin bootcamp.jpeg", longDesc: "Detailed breakdown of LinkedIn networking, profile SEO, and recruiter outreach.", link: "#" },
-  { id: 2, title: "Mock EN Joy", date: "EPOCH II", desc: "A trial by fire. Face the pressure of real-world interviews in a safe, constructive arena of growth.", longDesc: "Live simulated interviews with feedback from industry veterans.", link: "#" },
-  { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world.", longDesc: "A marathon of innovation focusing on rapid prototyping and business modeling.", link: "#" },
-  { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council.", longDesc: "Advanced case study competition evaluating strategy and financial logic.", link: "#" },
-  { id: 5, title: "Master's Talk", date: "EPOCH V", desc: "Listen to the Oracles. Seasoned alumni return to share the wisdom gained from their own professional odysseys.", longDesc: "An interactive Q&A session with alumni placed in Fortune 500 companies.", link: "#" },
-  { id: 6, title: "CV Review", date: "EPOCH VI", desc: "Refine your sacred scrolls. Experts will dissect and polish your resume to ensure it shines like gold.", longDesc: "One-on-one resume auditing and ATS optimization workshop.", link: "#" },
+  { id: 2, title: "Mock EN Joy", date: "EPOCH II", desc: "A trial by fire. Face the pressure of real-world interviews in a safe, constructive arena of growth.", img: "/images/mock en joy.png",longDesc: "Live simulated interviews with feedback from industry veterans.", link: "#" },
+  { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world.",img: "/images/ideathon.png", longDesc: "A marathon of innovation focusing on rapid prototyping and business modeling.", link: "#" },
+  { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council.",img: "/images/casexpert.png", longDesc: "Advanced case study competition evaluating strategy and financial logic.", link: "#" },
+  { id: 5, title: "Master's Talk", date: "EPOCH V", desc: "Listen to the Oracles. Seasoned alumni return to share the wisdom gained from their own professional odysseys.",img: "/images/master's talk.png", longDesc: "An interactive Q&A session with alumni placed in Fortune 500 companies.", link: "#" },
+  { id: 6, title: "CivilQuest", date: "EPOCH VI", desc: "Refine your sacred scrolls. Experts will dissect and polish your resume to ensure it shines like gold.",img: "/images/civilquest.png", longDesc: "One-on-one resume auditing and ATS optimization workshop.", link: "#" },
 ];
 
 const Events = () => {

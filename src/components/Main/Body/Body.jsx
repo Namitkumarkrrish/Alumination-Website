@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import styles from "./Main.module.css";
-import { initScrollAnimations, countUpNumbers, initLegacySlider } from "./mainAnimations";
+import styles from "./Body.module.css";
+import { initScrollAnimations, countUpNumbers, initLegacySlider } from "./bodyAnimations";
 
-const Main = () => {
+const Body = () => {
   const containerRef = useRef(null);
   const voyagerRef = useRef(null);
   const yearsRef = useRef(null);
@@ -71,4 +71,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Body;

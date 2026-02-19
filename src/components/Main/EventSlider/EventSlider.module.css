@@ -1,0 +1,183 @@
+.sliderSection {
+  padding: 100px 0 150px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.titleContainer {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.voyagerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.decorLine {
+  width: 50px;
+  height: 1px;
+  background: #b45309;
+}
+
+.eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #b45309;
+  letter-spacing: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 12px;
+}
+
+.gold {
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(180, 83, 9, 0.4);
+}
+
+.sliderWindow {
+  width: 100%;
+  /* Removed hidden overflow here to prevent clipping during the hover lift */
+  overflow: visible; 
+  position: relative;
+  padding: 40px 0; /* Extra padding gives space for the "lift" */
+}
+
+/* Parent container needs to hide the track overflow */
+.sliderSection {
+    overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+  width: max-content;
+}
+
+.landscapeCard {
+  width: 600px;
+  flex-shrink: 0;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Prevents sub-pixel rendering issues during transform */
+  will-change: transform; 
+}
+
+.antiqueFrame {
+  background: #110d0a;
+  padding: 15px;
+  border: 1px solid #2d1810;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+  position: relative;
+  /* Ensures the frame doesn't clip its own children */
+  overflow: visible; 
+  z-index: 1;
+}
+
+.innerBezel {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden; /* Only crop the image here */
+  border: 1px solid #b45309;
+  /* Helps browsers optimize the scale transition */
+  backface-visibility: hidden; 
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(15%) contrast(1.1);
+  transition: transform 1.2s ease;
+  display: block;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+}
+
+.coordStamp {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-family: monospace;
+  color: #fbbf24;
+  font-size: 0.7rem;
+  background: rgba(0,0,0,0.8);
+  padding: 4px 10px;
+  border-left: 2px solid #fbbf24;
+  z-index: 10;
+}
+
+.caption {
+  margin-top: 20px;
+  border-left: 1px solid #b45309;
+  padding-left: 15px;
+}
+
+.entryCode {
+  color: #b45309;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  display: block;
+}
+
+.eventName {
+  font-family: 'Cinzel', serif;
+  color: #fef3c7;
+  font-size: 1.6rem;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+/* HOVER STATES */
+.landscapeCard:hover {
+  /* Lift the whole card, but stay within the padding provided in .sliderWindow */
+  transform: translateY(-15px);
+  z-index: 100;
+}
+
+.landscapeCard:hover .image {
+  transform: scale(1.08);
+  filter: sepia(0%) contrast(1.2);
+}
+
+.landscapeCard:hover .antiqueFrame {
+  border-color: #fbbf24;
+  box-shadow: 0 45px 90px rgba(0,0,0,0.9);
+}
+
+.footerGlow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b45309, transparent);
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .landscapeCard { width: 450px; }
+  .innerBezel { height: 260px; }
+}
+
+@media (max-width: 600px) {
+  .landscapeCard { width: 320px; }
+  .innerBezel { height: 180px; }
+}
