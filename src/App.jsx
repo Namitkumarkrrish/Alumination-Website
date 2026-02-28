@@ -8,6 +8,7 @@ import Team from "./pages/Team/Team.jsx";
 import CosmicBackground from "./components/Cosmicbackground/Cosmicbackground.jsx";
 // 1. Import the Custom Cursor
 import CustomCursor from "./components/CustomCursor/CustomCursor.jsx"; 
+import Tshirt from "./pages/Tshirt/Tshirt.jsx";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/alumnis" element={<Alumnis />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/merchandise" element={<Tshirt />} />
       </Routes>
     </BrowserRouter>
   );

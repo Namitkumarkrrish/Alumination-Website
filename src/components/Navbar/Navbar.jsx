@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: "Timeline", path: "/timeline" },
     { name: "Alumnis", path: "/alumnis" },
     { name: "Team", path: "/team" },
+    
   ];
 
   // 1. Entrance Animation: Triggers on mount and route change
@@ -98,14 +99,6 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-          
-          <button 
-            className={`${styles.cta} nav-item-anim`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Connect
-          </button>
         </div>
 
         {/* Hamburger Button */}
