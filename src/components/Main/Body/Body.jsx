@@ -49,8 +49,7 @@ const Body = () => {
 
         <div className={styles.imageSide}>
           <div className={styles.imageFrame}>
-            <img src="/images/odyssey-ship.jpg" alt="Charting the Course" className={styles.mainImg} />
-            <div className={styles.overlayText}>CHARTING THE COURSE</div>
+            <img src="./fullteam/fullclub.jpeg" alt="Charting the Course" className={styles.mainImg} />
             <div className={styles.frameBorder}></div>
           </div>
         </div>
