@@ -11,7 +11,7 @@ const Body = () => {
   useEffect(() => {
     initScrollAnimations(containerRef.current);
     countUpNumbers(voyagerRef.current, 5000);
-    countUpNumbers(yearsRef.current, 20);
+    countUpNumbers(yearsRef.current, 60);
     initLegacySlider(marqueeRef.current);
   }, []);
 

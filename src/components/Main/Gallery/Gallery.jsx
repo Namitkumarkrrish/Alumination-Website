@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import styles from './EventSlider.module.css';
-import { initInfiniteLogos } from './eventSliderAnimations';
+import styles from './Gallery.module.css';
+import { initInfiniteLogos } from './galleryAnimations';
 
 const events = [
   { id: 1, title: "Grand Reunion", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200", coord: "LAT 40° N" },
@@ -10,7 +10,7 @@ const events = [
   { id: 5, title: "Corporate Dinner", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1200", coord: "LAT 12° N" },
 ];
 
-const EventSlider = () => {
+const Gallery = () => {
   const trackRef = useRef(null);
 
   useEffect(() => {
@@ -60,4 +60,4 @@ const EventSlider = () => {
   );
 };
 
-export default EventSlider;
+export default Gallery;

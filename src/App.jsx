@@ -10,6 +10,7 @@ import CosmicBackground from "./components/Cosmicbackground/Cosmicbackground.jsx
 import CustomCursor from "./components/CustomCursor/CustomCursor.jsx"; 
 import Tshirt from "./pages/Tshirt/Tshirt.jsx";
 import Register from "./components/Register/Register.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/merchandise" element={<Tshirt />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }

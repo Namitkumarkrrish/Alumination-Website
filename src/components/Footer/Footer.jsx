@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Footer.module.css';
 import { initFooterAnimations } from './footerAnimations';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -11,6 +12,14 @@ const Footer = () => {
       initFooterAnimations(footerRef.current, contentRef.current);
     }
   }, []);
+
+  // Function to handle scroll to top
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 'smooth' for animated scroll, 'auto' for instant
+    });
+  };
 
   return (
     <footer className={styles.footer} ref={footerRef}>
@@ -32,15 +41,14 @@ const Footer = () => {
           <div className={styles.linksGrid}>
             <div className={styles.linkColumn}>
               <h4 className={styles.columnTitle}>EXPEDITION</h4>
-              <a href="#home">Home</a>
-              <a href="#events">Events</a>
-              <a href="#timeline">Timeline</a>
+              <Link to="/" onClick={handleScrollToTop}>Home</Link>
+              <Link to="/events" onClick={handleScrollToTop}>Events</Link>
+              <Link to="/timeline" onClick={handleScrollToTop}>Timeline</Link>
             </div>
             <div className={styles.linkColumn}>
               <h4 className={styles.columnTitle}>VOYAGERS</h4>
-              <a href="#alumni">Alumni</a>
-              <a href="#team">Our Team</a>
-              <a href="#gallery">Archives</a>
+              <Link to="/alumnis" onClick={handleScrollToTop}>Alumni</Link>
+              <Link to="/team" onClick={handleScrollToTop}>Our Team</Link>
             </div>
           </div>
 
@@ -62,9 +70,9 @@ const Footer = () => {
           <div className={styles.legal}>
             <p>© 2026 SAIC ALUMNI ASSOCIATION • COORDINATES: 23.5° N, 87.3° E</p>
             <div className={styles.socials}>
-              <span>INSTAGRAM</span>
+              <Link to='https://www.instagram.com/saicell_nitdgp?igsh=MTI4eTVrdXpydm9xNQ==' target='/' >INSTAGRAM</Link>
               <span className={styles.sep}>•</span>
-              <span>LINKEDIN</span>
+              <Link to='https://www.linkedin.com/in/saic-nitd' target='/'>LINKEDIN</Link>
               <span className={styles.sep}>•</span>
               <span>X</span>
             </div>
