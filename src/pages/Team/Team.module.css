@@ -1,0 +1,148 @@
+.teamPage {
+  min-height: 100vh;
+  padding: 120px 0;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px; /* Slightly wider to accommodate more cards */
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.mainTitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 12px;
+  margin-bottom: 20px;
+}
+
+.titleUnderline {
+  width: 150px;
+  height: 2px;
+  background: #fbbf24;
+  margin: 0 auto 20px;
+}
+
+.gold { color: #fbbf24; }
+
+.tagline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #a1a1aa;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.categoryBlock {
+  margin-bottom: 100px;
+}
+
+.categoryTitle {
+  font-family: 'Cinzel', serif;
+  color: #b45309;
+  font-size: 1.4rem;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Line decoration next to titles */
+.categoryTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(180, 83, 9, 0.2);
+}
+
+.grid {
+  display: grid;
+  /* Adjusting card sizes to fit more people comfortably */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px 25px;
+}
+
+.memberCard {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.memberCard:hover {
+  transform: translateY(-10px);
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 1 / 1.1; /* Slightly taller for a more "profile" look */
+  background: #0a0907;
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.8);
+  transition: 0.6s ease;
+}
+
+.memberCard:hover .avatar {
+  filter: grayscale(0%) brightness(1.1);
+  transform: scale(1.05);
+}
+
+.goldCorner {
+  position: absolute;
+  top: 0; right: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #fbbf24;
+  border-right: 2px solid #fbbf24;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.memberCard:hover .goldCorner {
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.memberInfo {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.memberName {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #fef3c7;
+  margin: 5px 0;
+  letter-spacing: 1px;
+}
+
+.memberRole {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #71717a;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px 15px;
+  }
+  .categoryTitle { font-size: 1rem; }
+  .memberName { font-size: 0.9rem; }
+}
