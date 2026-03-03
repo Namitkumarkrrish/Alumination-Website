@@ -344,19 +344,6 @@
   background: #fff;
   transform: translateY(-2px);
 }
-
-/* .modalBack {
-  background: transparent;
-  color: #fde68a;
-  border: 1px solid rgba(253, 230, 138, 0.4);
-}
-
-.modalBack:hover {
-  background: rgba(253, 230, 138, 0.1);
-  border-color: #fde68a;
-  transform: translateY(-2px);
-} */
-
 /* Responsive adjustments for the buttons */
 @media (max-width: 480px) {
   .modalActions {

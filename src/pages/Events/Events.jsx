@@ -9,7 +9,6 @@ const odysseyEvents = [
   { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world.",img: "/images/ideathon.png", longDesc: "A marathon of innovation focusing on rapid prototyping and business modeling.", link: "#" },
   { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council.",img: "/images/casexpert.png", longDesc: "Advanced case study competition evaluating strategy and financial logic.", link: "#" },
   { id: 5, title: "Master's Talk", date: "EPOCH V", desc: "Listen to the Oracles. Seasoned alumni return to share the wisdom gained from their own professional odysseys.",img: "/images/master's talk.png", longDesc: "An interactive Q&A session with alumni placed in Fortune 500 companies.", link: "#" },
-  { id: 6, title: "CivilQuest", date: "EPOCH VI", desc: "Refine your sacred scrolls. Experts will dissect and polish your resume to ensure it shines like gold.",img: "/images/civilquest2.jpeg", longDesc: "One-on-one resume auditing and ATS optimization workshop.", link: "#" },
 ];
 
 const Events = () => {

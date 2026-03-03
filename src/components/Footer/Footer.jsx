@@ -29,8 +29,7 @@ const Footer = () => {
         <div className={styles.topSection}>
           <div className={styles.brand}>
             <div className={styles.logoContainer}>
-              <div className={styles.logoSquare}>S</div>
-              <span className={styles.logoText}>SAIC</span>
+              <img src="./logos/saiclogo3.png" alt="saiclogo" className={styles.logoSquare}/>
             </div>
             <p className={styles.missionText}>
               Charting courses for glory since the dawn of our odyssey. 
