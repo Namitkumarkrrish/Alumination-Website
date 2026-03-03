@@ -80,7 +80,7 @@ const Navbar = () => {
       <nav ref={navRef} className={styles.navbar}>
         {/* Logo Section */}
         <Link to="https://www.alumninitdgp.in" target="/" className={styles.logo}>
-          <img src="./logos/saicLogo2.png" alt="saic logo" className={styles.saiclogo}/>
+          <img src="./logos/saiclogo3.png" alt="saic logo" className={styles.logoIcon}/>
         </Link>
         
         {/* Desktop View */}

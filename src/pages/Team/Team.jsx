@@ -16,6 +16,8 @@ const teamData = {
     { id: "3-4", name: "Prakash Ch das", role: "3rd Year", image: "/teamImage/3rd-year/Prakash Ch das.jpg" },
     { id: "3-5", name: "Riya Singh", role: "3rd Year", image: "/teamImage/3rd-year/Riya Singh.jpg" },
     { id: "3-6", name: "Sourasish Das", role: "3rd Year", image: "/teamImage/3rd-year/Sourasish Das.png" },
+    { id: "3-7", name: "Satyake Sadhukhan", role: "3rd Year", image: "/teamImage/3rd-year/Satyake Sadhukhan.jpg" },
+
   ],
 
   secondYear: [
