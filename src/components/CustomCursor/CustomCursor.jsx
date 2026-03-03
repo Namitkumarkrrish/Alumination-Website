@@ -6,40 +6,27 @@ const CustomCursor = () => {
   const cursorRef = useRef(null);
   const followerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  
-  const mousePos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const cursorPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const followerPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const rafId = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      const mobileQuery = window.matchMedia("(max-width: 768px)").matches;
-      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-      setIsMobile(mobileQuery || hasTouch || hasCoarsePointer);
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window);
     };
 
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+    if (isMobile) return;
 
-    if (isMobile) {
-      document.documentElement.style.cursor = '';
-      document.body.style.cursor = '';
-      return;
-    }
+    const cleanup = initCursor({ cursorRef, followerRef }, { setIsVisible });
 
-    // Call external GSAP and Animation logic
-    const cleanup = initCursor(
-      { cursorRef, followerRef, mousePos, cursorPos, followerPos, rafId },
-      { setIsVisible }
-    );
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
-      window.removeEventListener("resize", checkMobile);
-      document.documentElement.style.cursor = '';
-      document.body.style.cursor = '';
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
       cleanup();
     };
   }, [isMobile]);
