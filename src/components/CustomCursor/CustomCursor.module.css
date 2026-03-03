@@ -174,3 +174,40 @@
   backface-visibility: hidden;
   perspective: 1000px;
 }
+/* ... keep your existing .cursorPoint and .cursorFollower styles ... */
+
+.cursorPoint,
+.cursorFollower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform;
+  /* Failsafe: hide by default on small screens */
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cursorPoint,
+  .cursorFollower {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Rest of your existing CSS animations and styles */
+.hidden {
+  opacity: 0 !important;
+}
+
+/* Hide the default browser cursor ONLY when a fine pointer (mouse) is present */
+@media (pointer: fine) {
+  :global(html), 
+  :global(body),
+  :global(html *),
+  :global(body *) {
+    cursor: none !important;
+  }
+}

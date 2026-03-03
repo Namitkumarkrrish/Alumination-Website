@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import styles from "./CustomCursor.module.css";
 import { initCursor } from "./cursorAnimation";
 
@@ -8,14 +8,20 @@ const CustomCursor = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window);
+      // Robust check for mobile: screen width OR touch capability
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth <= 768;
+      return isTouch || isSmallScreen;
     };
 
-    checkMobile();
-    if (isMobile) return;
+    if (checkMobile()) {
+      setIsMobile(true);
+      return;
+    }
 
+    // Initialize desktop-only logic
     const cleanup = initCursor({ cursorRef, followerRef }, { setIsVisible });
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -27,10 +33,11 @@ const CustomCursor = () => {
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
-      cleanup();
+      if (cleanup) cleanup();
     };
-  }, [isMobile]);
+  }, []); // Run once on mount
 
+  // If mobile is detected, render nothing to avoid any click-triggered artifacts
   if (isMobile) return null;
 
   return (
