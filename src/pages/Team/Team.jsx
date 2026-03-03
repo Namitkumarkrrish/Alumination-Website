@@ -93,10 +93,10 @@ const Team = () => {
           </p>
         </div>
 
-        <TeamSection title="4th Year" members={teamData.fourthYear} />
-        <TeamSection title="3rd Year" members={teamData.thirdYear} />
-        <TeamSection title="2nd Year" members={teamData.secondYear} />
-        <TeamSection title="1st Year" members={teamData.firstYear} />
+        <TeamSection title="Final year senior coordinators" members={teamData.fourthYear} />
+        <TeamSection title="Pre final year senior coordinators" members={teamData.thirdYear} />
+        <TeamSection title="Junior coordinators" members={teamData.secondYear} />
+        <TeamSection title="Members" members={teamData.firstYear} />
       </div>
     </section>
   );
