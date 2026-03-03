@@ -9,7 +9,7 @@ export const initInfiniteLogos = (track) => {
   const loop = gsap.to(track, {
     xPercent: -33.333, 
     ease: "none",
-    duration: 22, 
+    duration: 36, 
     repeat: -1,
   });
 
