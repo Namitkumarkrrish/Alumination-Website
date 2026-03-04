@@ -29,3 +29,37 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/*CUSTOMIZE SCROLLER */
+
+/* Target the entire scrollbar area */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the vertical scrollbar */
+  background-color: #0a0a0a; /* Matches your dark space background */
+}
+
+/* Target the 'track' (the part the thumb slides on) */
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 1px solid rgba(253, 230, 138, 0.1); /* Subtle gold border */
+}
+
+/* Target the 'thumb' (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b45309 0%, #fde68a 50%, #b45309 100%);
+  border-radius: 5px;
+  border: 2px solid #0a0a0a; /* Creates a padding effect around the gold thumb */
+  box-shadow: 0 0 10px rgba(253, 230, 138, 0.3);
+}
+
+/* Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #fde68a; /* Brightens on hover */
+  box-shadow: 0 0 15px rgba(253, 230, 138, 0.6);
+}
+
+/* Firefox Support (limited customization compared to Webkit) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fde68a #0a0a0a;
+}

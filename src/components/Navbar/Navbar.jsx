@@ -17,27 +17,22 @@ const Navbar = () => {
     { name: "Timeline", path: "/timeline" },
     { name: "Alumnis", path: "/alumnis" },
     { name: "Team", path: "/team" },
-    
   ];
 
-  // 1. Entrance Animation: Triggers on mount and route change
   useEffect(() => {
     const cleanup = navbarEntrance(navRef);
     return cleanup;
   }, [location.pathname]);
 
-  // 2. Mobile Menu Logic: Handles GSAP timeline and Body Scroll Lock
   useEffect(() => {
     animateMobileMenu(menuRef, mobileLinksRef, isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : 'unset';
   }, [isOpen]);
 
-  // 3. Hover Animations for The Golden Odyssey Theme
   const handleMouseEnter = (e) => {
     const isCta = e.target.classList.contains(styles.cta);
     
     if (isCta) {
-      // Golden pulse for the CTA
       gsap.to(e.target, { 
         scale: 1.05, 
         backgroundColor: "rgba(180, 83, 9, 0.15)", 
@@ -45,7 +40,6 @@ const Navbar = () => {
         duration: 0.4 
       });
     } else if (!e.target.classList.contains(styles.activeLink)) {
-      // Celestial rise for Nav Items
       gsap.to(e.target, { 
         y: -3, 
         color: "#fde68a", 
@@ -75,20 +69,33 @@ const Navbar = () => {
     }
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Wrapper function to handle multiple actions on mobile link click
+  const handleMobileLinkClick = () => {
+    setIsOpen(false);
+    handleScrollToTop();
+  };
+
   return (
     <>
       <nav ref={navRef} className={styles.navbar}>
-        {/* Logo Section */}
         <Link to="https://www.alumninitdgp.in" target="/" className={styles.logo}>
           <img src="./logos/saiclogo3.png" alt="saic logo" className={styles.logoIcon}/>
         </Link>
         
-        {/* Desktop View */}
         <div className={styles.links}>
           {navLinks.map((link) => (
             <NavLink 
               key={link.name} 
               to={link.path} 
+              // Added scroll to top for desktop links as well
+              onClick={handleScrollToTop}
               className={({ isActive }) => 
                 `${styles.navItem} ${isActive ? styles.activeLink : ""} nav-item-anim`
               }
@@ -100,7 +107,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Hamburger Button */}
         <button 
           className={styles.menuButton} 
           onClick={() => setIsOpen(!isOpen)}
@@ -112,7 +118,6 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Overlay Menu */}
       <div ref={menuRef} className={styles.mobileMenu}>
         <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
           &larr; RETURN
@@ -126,7 +131,8 @@ const Navbar = () => {
             className={({ isActive }) => 
               `${styles.mobileLink} ${isActive ? styles.activeMobile : ""}`
             }
-            onClick={() => setIsOpen(false)} 
+            // FIXED: Using the wrapper function here
+            onClick={handleMobileLinkClick} 
           >
             {link.name}
           </NavLink>
