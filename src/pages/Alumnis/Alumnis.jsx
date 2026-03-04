@@ -7,64 +7,57 @@ const alumniData = [
     id: 1,
     name: "Arjun Bhattacharya",
     role: "Associate Director - CAPGRID",
-    batch: "Class of 2012",
-    detail: "Charting public infrastructure paths with 10+ years in urban development.",
+    batch: "Class of 2016",
     image: "./alumniImage/Arjun Bhattacharya.jpg",
-    linkedin: "https://linkedin.com/in/aris-thorne"
+    linkedin: "https://www.linkedin.com/in/arjun-bhattacharya?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
   {
     id: 2,
     name: "Dr. Pradip Acharya",
     role: "Senior Engineering Manager @Tekion",
-    batch: "Class of 2015",
-    detail: "Leading the next generation of quantum computing networks at Global Tech.",
+    batch: "Class of 2005",
     image: "./alumniImage/Dr. Pradip Acharya.jpg",
-    linkedin: "https://linkedin.com/in/sarah-jenkins"
+    linkedin: "https://www.linkedin.com/in/pradip-acharya?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
   {
     id: 3,
     name: "Jeet Karmakar",
     role: "Founder & CTO, StepOut",
-    batch: "Class of 2018",
-    detail: "Bridging the gap between legacy systems and future-ready AI protocols.",
+    batch: "Class of 2017",
     image: "./alumniImage/Jeet Karmakar.jpg",
-    linkedin: "https://linkedin.com/in/marcus-vane"
+    linkedin: "https://www.linkedin.com/in/jeet-karmakar?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
   {
     id: 4,
     name: "Nidhi Rungta",
     role: "Personal Finance Coach",
     batch: "Class of 2014",
-    detail: "Redesigning metropolitan hubs with a focus on sustainable green energy.",
     image: "./alumniImage/Nidhi Rungta.jpg",
-    linkedin: "https://linkedin.com/in/elena-rossi"
+    linkedin: "https://www.linkedin.com/in/nidhirungta?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
     id: 5,
     name: "Sayak Ghosh",
     role: "CEO & Founder @ StepOut",
-    batch: "Class of 2013",
-    detail: "Consulting for global NGOs on digital ethics and data privacy laws.",
+    batch: "Class of 2017",
     image: "./alumniImage/Sayak Ghosh.jpg",
-    linkedin: "https://linkedin.com/in/aria-smith"
+    linkedin: "https://www.linkedin.com/in/sayakghosh14?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
   {
     id: 6,
     name: "Sourav Das",
     role: "Supply Chain Consultant - Deloitte",
-    batch: "Class of 2011",
-    detail: "Developing propulsion systems for deep-space exploration missions.",
+    batch: "Class of 2019",
     image: "./alumniImage/Sourav Das.jpg",
-    linkedin: "https://linkedin.com/in/viktor-kael"
+    linkedin: "https://www.linkedin.com/in/sourav-das-075529165?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
     id: 7,
     name: "Arobindo Pal",
-    role: "UX Researcher",
-    batch: "Class of 2020",
-    detail: "Specializing in human-computer interaction for neural link interfaces.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nora",
-    linkedin: "https://linkedin.com/in/nora-quinn"
+    role: "",
+    batch: "Class of 1979",
+    image: "",
+    linkedin: "https://linkedin.com/in/arobindo pal/"
   }
 ];
 
@@ -101,7 +94,6 @@ const Alumni = () => {
                 <span className={styles.batch}>{alumnus.batch}</span>
                 <h3 className={styles.name}>{alumnus.name}</h3>
                 <span className={styles.role}>{alumnus.role}</span>
-                <p className={styles.detail}>{alumnus.detail}</p>
                 <a 
                   href={alumnus.linkedin} 
                   target="_blank" 
