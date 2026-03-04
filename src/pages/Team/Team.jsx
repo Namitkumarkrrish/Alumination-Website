@@ -3,22 +3,42 @@ import styles from "./Team.module.css";
 
 const teamData = {
   fourthYear: [
-    { id: "4-1", name: "K Bala Ganesh", role: "4th Year", image: "/teamImage/4th-year/K Bala Ganesh.jpg" },
-    { id: "4-2", name: "Rahul", role: "4th Year", image: "/teamImage/4th-year/Rahul.jpg" },
-    { id: "4-3", name: "SANJIB MAITY", role: "4th Year", image: "/teamImage/4th-year/SANJIB MAITY.jpg" },
-    { id: "4-4", name: "Swarnim Suryansh", role: "4th Year", image: "/teamImage/4th-year/Swarnim Suryansh.jpeg" },
+    { id: "4-1", name: "Swarnim Suryansh", role: "4th Year", image: "/teamImage/4th-year/Swarnim Suryansh.jpeg" },
+    { id: "4-2", name: "Bushra Saad", role: "4th Year", image: "/teamImage/4th-year/bushra saad.jpg" },
+    { id: "4-3", name: "Souhardya Majumder", role: "4th Year", image: "/teamImage/4th-year/Content Head.png" },
+    { id: "4-4", name: "Debson Mahato", role: "4th Year", image: "/teamImage/4th-year/Debson Mahato.jpg" },
+    { id: "4-5", name: "Sathish Kumar Panduru", role: "4th Year", image: "/teamImage/4th-year/Graphic Designing Head.jpg" },
+    { id: "4-6", name: "K Bala Ganesh", role: "4th Year", image: "/teamImage/4th-year/K Bala Ganesh.jpg" },
+    { id: "4-7", name: "Katharavath Navya", role: "4th Year", image: "/teamImage/4th-year/Katharavath Navya.jpg" },
+    { id: "4-8", name: "Pappu Sharmila", role: "4th Year", image: "/teamImage/4th-year/Pappu Sharmila.jpg" },
+    { id: "4-9", name: "Pratishtha Barua", role: "4th Year", image: "/teamImage/4th-year/Pratishtha Barua.jpg" },
+    { id: "4-10", name: "Rahul", role: "4th Year", image: "/teamImage/4th-year/Rahul.jpg" },
+    { id: "4-11", name: "Reshmi Saha", role: "4th Year", image: "/teamImage/4th-year/Reshmi Saha.jpg" },
+    { id: "4-12", name: "Sai Kumar Adireddi", role: "4th Year", image: "/teamImage/4th-year/Sai Kumar Adireddi.jpg" },
+    { id: "4-13", name: "SANJIB MAITY", role: "4th Year", image: "/teamImage/4th-year/SANJIB MAITY.jpg" },
+    { id: "4-14", name: "Soumi Ghosh", role: "4th Year", image: "/teamImage/4th-year/Soumi Ghosh.jpg" },
+    { id: "4-15", name: "Soumili Ghosh", role: "4th Year", image: "/teamImage/4th-year/Soumili Ghosh.jpg" },
+    { id: "4-16", name: "Supriyo Monda", role: "4th Year", image: "/teamImage/4th-year/Supriyo Monda.jpg" },
+    { id: "4-17", name: "Bikarna Baidya", role: "4th Year", image: "/teamImage/4th-year/Bikarna Baidya.jpg" },
+    { id: "4-18", name: "Uppada Sravanthi", role: "4th Year", image: "/teamImage/4th-year/Uppada Sravanthi.jpg" },
+    { id: "4-19", name: "Vishal Gupta", role: "4th Year", image: "/teamImage/4th-year/Vishal Gupta.jpg" },
   ],
 
   thirdYear: [
-    { id: "3-1", name: "Galipelly Sriram", role: "3rd Year", image: "/teamImage/3rd-year/Galipelly_Sriram - Sriram Galipelly.jpg" },
-    { id: "3-2", name: "Jaswika Mithram", role: "3rd Year", image: "/teamImage/3rd-year/Jaswika Mithram.jpg" },
-    { id: "3-3", name: "Piyush Raj", role: "3rd Year", image: "/teamImage/3rd-year/Piyush Raj.jpeg" },
-    { id: "3-4", name: "Prakash Ch das", role: "3rd Year", image: "/teamImage/3rd-year/Prakash Ch das.jpg" },
-    { id: "3-5", name: "Riya Singh", role: "3rd Year", image: "/teamImage/3rd-year/Riya Singh.jpg" },
-    { id: "3-6", name: "Sourasish Das", role: "3rd Year", image: "/teamImage/3rd-year/Sourasish Das.png" },
-    { id: "3-7", name: "Satyake Sadhukhan", role: "3rd Year", image: "/teamImage/3rd-year/Satyake Sadhukhan.jpg" },
-
-  ],
+    { id: "3-1", name: "Anagh Sinha", role: "3rd Year", image: "/teamImage/3rd-year/Anagh Sinha.jpg" },
+    { id: "3-2", name: "Aparup Goswami", role: "3rd Year", image: "/teamImage/3rd-year/Aparup Goswami.jpg" },
+    { id: "3-3", name: "Beas", role: "3rd Year", image: "/teamImage/3rd-year/Beas.jpg" },
+    { id: "3-4", name: "Galipelly Sriram", role: "3rd Year", image: "/teamImage/3rd-year/Galipelly_Sriram - Sriram Galipelly.jpg" },
+    { id: "3-5", name: "Jaswika Mithram", role: "3rd Year", image: "/teamImage/3rd-year/Jaswika Mithram.jpg" },
+    { id: "3-6", name: "Joys Pakalapati", role: "3rd Year", image: "/teamImage/3rd-year/Joys Pakalapati.jpg" },
+    { id: "3-7", name: "Piyush Raj", role: "3rd Year", image: "/teamImage/3rd-year/Piyush Raj.jpeg" },
+    { id: "3-8", name: "Prakash Ch das", role: "3rd Year", image: "/teamImage/3rd-year/Prakash Ch das.jpg" },
+    { id: "3-9", name: "Riya Singh", role: "3rd Year", image: "/teamImage/3rd-year/Riya Singh.jpg" },
+    { id: "3-10", name: "Satyake Sadhukhan", role: "3rd Year", image: "/teamImage/3rd-year/Satyake Sadhukhan.jpg" },
+    { id: "3-11", name: "Sourasish Das", role: "3rd Year", image: "/teamImage/3rd-year/Sourasish Das.png" },
+    { id: "3-12", name: "Subhamita Halder", role: "3rd Year", image: "/teamImage/3rd-year/Subhamita Halder.jpg" },
+    { id: "3-13", name: "Tulasi Pottella", role: "3rd Year", image: "/teamImage/3rd-year/Tulasi Pottella.jpg" },
+],
 
   secondYear: [
     { id: "2-1", name: "Afreen", role: "2nd Year", image: "/teamImage/2nd-year/IMG_2250 - Afreen.JPG" },
@@ -34,6 +54,9 @@ const teamData = {
     { id: "2-11", name: "Soumy Das", role: "2nd Year", image: "/teamImage/2nd-year/Soumy Das.jpg" },
     { id: "2-12", name: "Sudip kumar Pal", role: "2nd Year", image: "/teamImage/2nd-year/Sudip kumar Pal.jpg" },
     { id: "2-13", name: "Vivek Munda", role: "2nd Year", image: "/teamImage/2nd-year/Vivek Munda.jpg" },
+    { id: "2-14", name: "B. Sanjana", role: "2nd Year", image: "/teamImage/2nd-year/B. Sanjana.jpg" },
+    { id: "2-13", name: "Barla Poojitha", role: "2nd Year", image: "/teamImage/2nd-year/Barla Poojitha.jpg" },
+
   ],
 
   firstYear: [
