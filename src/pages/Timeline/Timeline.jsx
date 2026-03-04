@@ -3,22 +3,25 @@ import { useTimelineAnimation } from './useTimelineAnimation';
 import styles from './Timeline.module.css';
 
 const timelineData = [
-  // DAY 01 - 6 Events
-  { day: 1, side: "left", time: "09:00 AM", title: "The Awakening", loc: "Main Sanctuary", desc: "Opening ceremony." },
-  { day: 1, side: "right", time: "11:30 AM", title: "Star Charting", loc: "Lab 04", desc: "Mapping the digital void." },
-  { day: 1, side: "left", time: "01:00 PM", title: "Star Navigation", loc: "Observatory", desc: "Tech deep dive." },
-  { day: 1, side: "right", time: "04:00 PM", title: "Solar Wind", loc: "Atrium", desc: "Energy systems briefing." },
-  { day: 1, side: "left", time: "07:00 PM", title: "Celestial Gala", loc: "Grand Ballroom", desc: "Networking." },
-  { day: 1, side: "right", time: "09:00 PM", title: "Midnight Hub", loc: "Plaza Stage", desc: "Late night discussion." },
+  // DAY 01
+  { day: 1, side: "left", time: "01:00 PM", title: "Opening Ceremony", loc: "DM SEN", desc: "The official launch of Alumination’25." },
+  { day: 1, side: "right", time: "01:30 PM", title: "CivilQuest", loc: "DM SEN", desc: "Dive into the world of civil services." },
+  { day: 1, side: "left", time: "02:30 PM", title: "CaseXpert", loc: "NAB 401", desc: "Solving real-world business cases." },
+  { day: 1, side: "right", time: "03:00 PM", title: "Mock-En-Joy", loc: "G Meet", desc: "Mock Industry/IT interview by Alumni." },
+  { day: 1, side: "left", time: "03:30 PM", title: "Linkedin BootCamp", loc: "NAB 401", desc: "Optimizing your professional presence." },
+  { day: 1, side: "right", time: "04:00 PM", title: "Ideathon", loc: "DM SEN", desc: "Igniting innovation and problem-solving." },
+  { day: 1, side: "left", time: "05:30 PM", title: "Masters’ Talk", loc: "DM SEN", desc: "Insights from industry veterans." },
+  { day: 1, side: "right", time: "07:00 PM", title: "QnA session with Speaker", loc: "DM SEN", desc: "Direct interaction and knowledge exchange." },
   
-  // DAY 02 - 5 Events
-  { day: 2, side: "left", time: "10:00 AM", title: "Nebula Workshop", loc: "Lab 01", desc: "Hands-on building." },
-  { day: 2, side: "right", time: "01:00 PM", title: "Gravity Shift", loc: "Auditorium", desc: "Physics of the Odyssey." },
-  { day: 2, side: "left", time: "03:00 PM", title: "The Void Panel", loc: "Main Stage", desc: "AI Ethics in Space." },
-  { day: 2, side: "right", time: "05:30 PM", title: "Pulsar Beats", loc: "Roof Garden", desc: "Electronic music set." },
-  { day: 2, side: "left", time: "08:00 PM", title: "Final Orbit", loc: "Main Stage", desc: "Closing remarks." },
+  // DAY 02
+  { day: 2, side: "left", time: "01:00 PM", title: "CaseXpert", loc: "DM SEN", desc: "Interview round conducted by Alumni." },
+  { day: 2, side: "right", time: "03:00 PM", title: "Ideathon", loc: "Checkpoint 2", desc: "Mid-expedition progress evaluation." },
+  { day: 2, side: "left", time: "03:30 PM", title: "Mock-En-Joy", loc: "G Meet", desc: "IT interview session with Alumni." },
+  { day: 2, side: "right", time: "04:00 PM", title: "Masters’ Talk (TENTATIVE)", loc: "DM SEN", desc: "Insightful session with special guests." },
+  { day: 2, side: "left", time: "05:30 PM", title: "QnA session with Speaker (TENTATIVE)", loc: "DM SEN", desc: "Open floor for archival inquiries." },
+  { day: 2, side: "right", time: "06:00 PM", title: "Final Presentations & Results", loc: "DM SEN", desc: "Ideathon finals, jury deliberations, and prize distribution." },
+  { day: 2, side: "left", time: "07:00 PM", title: "Closing of Alumination’25", loc: "DM SEN", desc: "Final remarks and conclusion of the odyssey." },
 ];
-
 const Timeline = () => {
   const [activeDay, setActiveDay] = useState(1);
   const scrollRef = useRef(null);
