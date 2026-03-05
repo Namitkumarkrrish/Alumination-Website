@@ -4,22 +4,25 @@ import { scrollReveal, detailAnimation, revealTitleLetters, modalFadeIn } from "
 import { Link } from "react-router-dom";
 
 const odysseyEvents = [
-  { id: 1, title: "Linkedin bootcamp", date: "EPOCH I", desc: "Unlock the secrets of professional networking. Master your digital presence under the guidance of industry titans.", img: "/images/linkedin bootcamp.jpeg", longDesc: "Detailed breakdown of LinkedIn networking, profile SEO, and recruiter outreach.", link: "/register" },
-  { id: 2, title: "Mock EN Joy", date: "EPOCH II", desc: "A trial by fire. Face the pressure of real-world interviews in a safe, constructive arena of growth.", img: "/images/mock en joy.png",longDesc: "Live simulated interviews with feedback from industry veterans.", link: "#" },
-  { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world.",img: "/images/ideathon.png", longDesc: "A marathon of innovation focusing on rapid prototyping and business modeling.", link: "#" },
-  { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council.",img: "/images/casexpert.png", longDesc: "Advanced case study competition evaluating strategy and financial logic.", link: "#" },
-  { id: 5, title: "Master's Talk", date: "EPOCH V", desc: "Listen to the Oracles. Seasoned alumni return to share the wisdom gained from their own professional odysseys.",img: "/images/master's talk.png", longDesc: "An interactive Q&A session with alumni placed in Fortune 500 companies.", link: "#" },
+  { id: 1, title: "Linkedin bootcamp", date: "EPOCH I", desc: "Unlock the secrets of professional networking. Master your digital presence under the guidance of industry titans.", img: "/images/linkedin bootcamp.jpeg", longDesc: "Detailed breakdown of LinkedIn networking, profile SEO, and recruiter outreach.", link: "/registerLinkedin" },
+  { id: 2, title: "Mock EN Joy", date: "EPOCH II", desc: "A trial by fire. Face the pressure of real-world interviews in a safe, constructive arena of growth.", img: "/images/mock en joy.png", longDesc: "Live simulated interviews with feedback from industry veterans.", link: "/registerMock" },
+  { id: 3, title: "Ideathon", date: "EPOCH III", desc: "Forge new paths. A 24-hour journey to transform abstract thoughts into concrete solutions for the modern world.", img: "/images/ideathon.png", longDesc: "A marathon of innovation focusing on rapid prototyping and business modeling.", link: "/registerIdeathon" },
+  { id: 4, title: "CaseXpert", date: "EPOCH IV", desc: "Analyze the complex myths of business. Solve intricate case studies and present your scrolls to the council.", img: "/images/casexpert.png", longDesc: "Advanced case study competition evaluating strategy and financial logic.", link: "/registerCase" },
+  { id: 5, title: "Master's Talk", date: "EPOCH V", desc: "Listen to the Oracles. Seasoned alumni return to share the wisdom gained from their own professional odysseys.", img: "/images/master's talk.png", longDesc: "An interactive Q&A session with alumni placed in Fortune 500 companies.", link: "#" },
 ];
 
 const Events = () => {
   const [activeEvent, setActiveEvent] = useState(odysseyEvents[0]);
   const [isMobile, setIsMobile] = useState(false);
-  const [showModal, setShowModal] = useState(false); // Added for Modal
-  
+  const [showModal, setShowModal] = useState(false);
+
   const writeupRef = useRef(null);
   const titleRef = useRef(null);
   const gridRef = useRef(null);
-  const modalRef = useRef(null); // Added for GSAP
+  const modalRef = useRef(null);
+
+  // Define which titles are allowed to show registration
+  const registerEnabledEvents = ["Ideathon", "Mock EN Joy", "CaseXpert", "Linkedin bootcamp"];
 
   useEffect(() => {
     revealTitleLetters(titleRef.current);
@@ -94,11 +97,10 @@ const Events = () => {
                 {ev.img ? (
                   <img src={ev.img} alt={ev.title} className={styles.eventImage} />
                 ) : (
-                <span>[SACRED IMAGERY]</span>
+                  <span>[SACRED IMAGERY]</span>
                 )}
               </div>
               <div className={styles.cardContent}>
-                {/* <h3 className={styles.cardTitle}>{ev.title}</h3> */}
                 <p className={styles.cardDate}>{ev.date}</p>
               </div>
             </div>
@@ -115,9 +117,11 @@ const Events = () => {
           <h2 className={`${styles.writeupTitle} writeup-anim`}>{activeEvent.title}</h2>
           <p className={`${styles.writeupText} writeup-anim`}>{activeEvent.desc}</p>
           
-          {/* THE NEW BUTTONS */}
           <div className={`${styles.buttonContainer} writeup-anim`}>
-            <a href={activeEvent.link} className={styles.registerBtn}>REGISTER NOW</a>
+            {/* Conditional check for Register Button */}
+            {registerEnabledEvents.includes(activeEvent.title) && (
+              <a href={activeEvent.link} className={styles.registerBtn}>REGISTER NOW</a>
+            )}
             <button onClick={handleMoreDetails} className={styles.detailsBtn}>MORE DETAILS</button>
           </div>
 
@@ -128,23 +132,23 @@ const Events = () => {
         </div>
       </div>
 
-      {/* POPUP MODAL */}
-{showModal && (
-  <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
-    <div ref={modalRef} className={styles.modalBox} onClick={(e) => e.stopPropagation()}>
-      <button className={styles.closeBtn} onClick={() => setShowModal(false)}>&times;</button>
-      
-      <h2 className={styles.modalTitle}>{activeEvent.title}</h2>
-      <p className={styles.modalContent}>{activeEvent.longDesc}</p>
-      
-      {/* UPDATED MODAL BUTTONS */}
-      <div className={styles.modalActions}>
-        <Link to="/register" className={styles.modalReg}>REGISTER NOW</Link>
-        {/* <button className={styles.modalBack} onClick={() => setShowModal(false)}>BACK</button> */}
-      </div>
-    </div>
-  </div>
-)}
+      {showModal && (
+        <div className={styles.modalOverlay} onClick={() => setShowModal(false)}>
+          <div ref={modalRef} className={styles.modalBox} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeBtn} onClick={() => setShowModal(false)}>&times;</button>
+            
+            <h2 className={styles.modalTitle}>{activeEvent.title}</h2>
+            <p className={styles.modalContent}>{activeEvent.longDesc}</p>
+            
+            <div className={styles.modalActions}>
+              {/* Conditional check for Modal Register Button */}
+              {registerEnabledEvents.includes(activeEvent.title) && (
+                <Link to="/register" className={styles.modalReg}>REGISTER NOW</Link>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

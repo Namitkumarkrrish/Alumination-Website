@@ -6,11 +6,13 @@ import Timeline from "./pages/Timeline/Timeline.jsx";
 import Alumnis from "./pages/Alumnis/Alumnis.jsx";
 import Team from "./pages/Team/Team.jsx";
 import CosmicBackground from "./components/Cosmicbackground/Cosmicbackground.jsx";
-// 1. Import the Custom Cursor
 import CustomCursor from "./components/CustomCursor/CustomCursor.jsx"; 
 import Tshirt from "./pages/Tshirt/Tshirt.jsx";
-import Register from "./components/Register/Register.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import RegisterLinkedin from "./components/Register/RegisterLinkedin/RegisterLinkedin.jsx";
+import RegisterMock from "./components/Register/RegisterMock/RegisterMock.jsx";
+import RegisterCase from "./components/Register/RegisterCase/RegisterCase.jsx";
+import RegisterIdeathon from "./components/Register/RegisterIdeathon/RegisterIdeathon.jsx";
 
 function App() {
   return (
@@ -30,7 +32,10 @@ function App() {
         <Route path="/alumnis" element={<Alumnis />} />
         <Route path="/team" element={<Team />} />
         <Route path="/merchandise" element={<Tshirt />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="registerLinkedin" element={<RegisterLinkedin />} />
+        <Route path="/registerMock" element={<RegisterMock />} />
+        <Route path="/registerCase" element={<RegisterCase />} />
+        <Route path="/registerIdeathon" element={<RegisterIdeathon />} />
       </Routes>
 
       <Footer />
