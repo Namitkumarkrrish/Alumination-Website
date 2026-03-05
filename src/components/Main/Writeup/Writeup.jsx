@@ -40,10 +40,10 @@ const Writeup = () => {
             </Link>
             <br></br>
             <br></br>
-            <Link to="/merchandise" className={styles.voyageBtn}>
+            {/* <Link to="/merchandise" className={styles.voyageBtn}>
               ALUMINATION MERCHANDISE
               <span className={styles.arrow}>→</span>
-            </Link>
+            </Link> */}
           </div>
 
           <div className={styles.rosterSide}>
