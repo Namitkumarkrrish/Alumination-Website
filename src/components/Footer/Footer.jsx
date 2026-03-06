@@ -1,24 +1,31 @@
 import React, { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Footer.module.css';
 import { initFooterAnimations } from './footerAnimations';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const footerRef = useRef(null);
   const contentRef = useRef(null);
+  const { pathname } = useLocation(); // Track route changes
 
   useEffect(() => {
-    if (footerRef.current) {
-      initFooterAnimations(footerRef.current, contentRef.current);
-    }
-  }, []);
+    let ctx;
+    
+    // Small delay to ensure the page height has settled after route change
+    const timer = setTimeout(() => {
+      if (footerRef.current) {
+        ctx = initFooterAnimations(footerRef.current, contentRef.current);
+      }
+    }, 100);
 
-  // Function to handle scroll to top
+    return () => {
+      clearTimeout(timer);
+      if (ctx) ctx.revert();
+    };
+  }, [pathname]); // Re-run whenever the page path changes
+
   const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // 'smooth' for animated scroll, 'auto' for instant
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -56,7 +63,7 @@ const Footer = () => {
             <div className={styles.buttonWrapper}>
               <button className={styles.connectBtn}>
                 BEGIN YOUR VOYAGE
-                <div className={styles.btnGlow}></div>
+                <div className={`${styles.btnGlow} btnGlow`}></div>
               </button>
             </div>
           </div>
@@ -69,9 +76,9 @@ const Footer = () => {
           <div className={styles.legal}>
             <p>© 2026 SAIC ALUMNI ASSOCIATION • COORDINATES: 23.5° N, 87.3° E</p>
             <div className={styles.socials}>
-              <Link to='https://www.instagram.com/saicell_nitdgp?igsh=MTI4eTVrdXpydm9xNQ==' target='/' >INSTAGRAM</Link>
+              <a href='https://www.instagram.com/saicell_nitdgp?igsh=MTI4eTVrdXpydm9xNQ==' target='_blank' rel="noreferrer">INSTAGRAM</a>
               <span className={styles.sep}>•</span>
-              <Link to='https://www.linkedin.com/in/saic-nitd' target='/'>LINKEDIN</Link>
+              <a href='https://www.linkedin.com/in/saic-nitd' target='_blank' rel="noreferrer">LINKEDIN</a>
               <span className={styles.sep}>•</span>
               <span>X</span>
             </div>

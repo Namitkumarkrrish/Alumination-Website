@@ -12,6 +12,13 @@ const eventNames = [
   "CIVILQUEST"
 ];
 
+const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
 const Writeup = () => {
   const sectionRef = useRef(null);
   const boxRef = useRef(null);
@@ -34,7 +41,7 @@ const Writeup = () => {
               brilliance of its voyagers. We call this <strong>Alumination</strong>—the 
               guiding light that fuels our journey forward.
             </p>
-            <Link to="/events" className={styles.voyageBtn}>
+            <Link to="/events" onClick={handleScrollToTop} className={styles.voyageBtn}>
               EXPLORE EVENTS
               <span className={styles.arrow}>→</span>
             </Link>
