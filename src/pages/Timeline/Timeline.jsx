@@ -4,23 +4,31 @@ import styles from './Timeline.module.css';
 
 const timelineData = [
   // DAY 01
-  { day: 1, side: "left", time: "01:00 PM", title: "Opening Ceremony", loc: "DM SEN", desc: "The official launch of Alumination’25." },
-  { day: 1, side: "right", time: "01:30 PM", title: "CivilQuest", loc: "DM SEN", desc: "Dive into the world of civil services." },
-  { day: 1, side: "left", time: "02:30 PM", title: "CaseXpert", loc: "NAB 401", desc: "Solving real-world business cases." },
-  { day: 1, side: "right", time: "03:00 PM", title: "Mock-En-Joy", loc: "G Meet", desc: "Mock Industry/IT interview by Alumni." },
-  { day: 1, side: "left", time: "03:30 PM", title: "Linkedin BootCamp", loc: "NAB 401", desc: "Optimizing your professional presence." },
-  { day: 1, side: "right", time: "04:00 PM", title: "Ideathon", loc: "DM SEN", desc: "Igniting innovation and problem-solving." },
-  { day: 1, side: "left", time: "05:30 PM", title: "Masters’ Talk", loc: "DM SEN", desc: "Insights from industry veterans." },
-  { day: 1, side: "right", time: "07:00 PM", title: "QnA session with Speaker", loc: "DM SEN", desc: "Direct interaction and knowledge exchange." },
-  
+  { day: 1, side: "left", time: "02:00 PM", title: "Welcome Ceremony", loc: "DM SEN", desc: "Lamp lighting ceremony, introduction to the fest by the anchor, followed by Masters' Talk by distinguished speakers." },
+
+  { day: 1, side: "right", time: "04:00 PM", title: "Break", loc: "DM SEN", desc: "Short refreshment and networking break." },
+
+  { day: 1, side: "left", time: "04:30 PM", title: "Ideathon Launch", loc: "DM SEN", desc: "Speech by Sayak and Jeet about their company and announcement of the Ideathon problem statement." },
+
+  { day: 1, side: "right", time: "05:30 PM", title: "Break", loc: "DM SEN", desc: "Short break before the next session." },
+
+  { day: 1, side: "left", time: "06:00 PM", title: "Mock-En-Joy (Part 1)", loc: "G Meet", desc: "First session of mock interviews conducted by alumni to simulate real industry interview experiences." },
+
+
   // DAY 02
-  { day: 2, side: "left", time: "01:00 PM", title: "CaseXpert", loc: "DM SEN", desc: "Interview round conducted by Alumni." },
-  { day: 2, side: "right", time: "03:00 PM", title: "Ideathon", loc: "Checkpoint 2", desc: "Mid-expedition progress evaluation." },
-  { day: 2, side: "left", time: "03:30 PM", title: "Mock-En-Joy", loc: "G Meet", desc: "IT interview session with Alumni." },
-  { day: 2, side: "right", time: "04:00 PM", title: "Masters’ Talk (TENTATIVE)", loc: "DM SEN", desc: "Insightful session with special guests." },
-  { day: 2, side: "left", time: "05:30 PM", title: "QnA session with Speaker (TENTATIVE)", loc: "DM SEN", desc: "Open floor for archival inquiries." },
-  { day: 2, side: "right", time: "06:00 PM", title: "Final Presentations & Results", loc: "DM SEN", desc: "Ideathon finals, jury deliberations, and prize distribution." },
-  { day: 2, side: "left", time: "07:00 PM", title: "Closing of Alumination’25", loc: "DM SEN", desc: "Final remarks and conclusion of the odyssey." },
+  { day: 2, side: "right", time: "01:00 PM", title: "Ideathon Task Review", loc: "DM SEN", desc: "Participants present their progress and receive feedback on their Ideathon solutions." },
+
+  { day: 2, side: "left", time: "02:30 PM", title: "Break", loc: "DM SEN", desc: "Short break for refreshments and networking." },
+
+  { day: 2, side: "right", time: "03:00 PM", title: "LinkedIn Bootcamp Workshop", loc: "DM SEN", desc: "Workshop focused on optimizing LinkedIn profiles and building a strong professional presence." },
+
+  { day: 2, side: "left", time: "04:00 PM", title: "Break", loc: "DM SEN", desc: "Short break before the next event." },
+
+  { day: 2, side: "right", time: "04:30 PM", title: "CaseXpert", loc: "DM SEN", desc: "Participants solve real-world business cases and present strategic solutions." },
+
+  { day: 2, side: "left", time: "06:00 PM", title: "Mock-En-Joy (Part 2)", loc: "G Meet", desc: "Second session of mock interviews with alumni providing feedback and guidance." },
+
+  { day: 2, side: "right", time: "07:00 PM", title: "Closing Ceremony & Prize Distribution", loc: "DM SEN", desc: "Final ceremony of Alumination’25 with prize distribution and closing remarks." }
 ];
 const Timeline = () => {
   const [activeDay, setActiveDay] = useState(1);
